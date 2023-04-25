@@ -1,0 +1,17 @@
+{
+  "name": "rest-rant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'test'"
+  },
+  "keywords": [
+    "Restaurants"
+  ],
+  "author": "Andres Ramos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
