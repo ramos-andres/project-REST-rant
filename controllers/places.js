@@ -5,7 +5,7 @@ const app = express()
 
 //first route
 router.get('/', (req, res) => {
-    res.render('places/index')
+    res.render('places/index',{places:[]})
 })
 
 // GET /places
