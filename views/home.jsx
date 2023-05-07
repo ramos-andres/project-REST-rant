@@ -9,7 +9,7 @@ function home () {
             <main>
                 <h1>Home</h1>
                 <div>
-                    <img src="/images/samosas.jpg" alt="Samosas"/>
+                    <img src="/images/samosasS.jpg" alt="Samosas"/>
                     <div>
                     Photo by <a href="https://unsplash.com/@kabircheema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">kabir cheema</a> on <a href="https://unsplash.com/s/photos/samosa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
                     </div>

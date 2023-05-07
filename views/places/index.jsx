@@ -11,7 +11,7 @@ function index (data) {
               <a href={`/places/${index}`} >
                 {place.name}
               </a>
-            </h2>
+          </h2>
           <p className='text-center'>
             {place.cuisines}
           </p>
