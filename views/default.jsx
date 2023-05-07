@@ -3,7 +3,7 @@ const React = require('react')
 
 //stub function Def with one parameter 'html'
 //with return statement, includes html skeleton for all pages
-function Def (html) {
+function Def (props) {
     return (
         <html>
             <head>
@@ -12,7 +12,7 @@ function Def (html) {
                 <link rel="stylesheet" href="/css/style.css"/>
             </head>
             <body>
-                {html.children}
+                {props.children}
             </body>
         </html>
     )
