@@ -18,8 +18,13 @@ router.get('/', (req, res) => {
         cuisines: 'Coffee, Bakery',
         pic: '/images/catcafe.jpg'
       }]
-      
     res.render('places/index', {places})
+  })
+  
+  // POST /places
+  router.post('/', (req, res) => {
+    console.log(req.body)
+    res.send('POST /places')
   })
   
   // GET /places/new
