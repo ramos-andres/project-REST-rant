@@ -1,7 +1,8 @@
-//stub content
+//import React and the Def component from default.jsx layout view
 const React = require('react')
 const Def = require('../default')
 
+//show stub content
 function show (data) {
     return (
         <Def>
@@ -25,5 +26,5 @@ function show (data) {
         </Def>
     )
 }
-
+//export show function
 module.exports = show

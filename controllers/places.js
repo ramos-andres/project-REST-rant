@@ -51,7 +51,7 @@ router.put('/:id', (req, res) => {
       res.render('error404')
   }
   else if (!places[id]) {
-      res.render('error404')
+      res.render('places/show', {place: places[id], id})
   }
   else {
       // Dig into req.body and make sure data is valid
@@ -97,7 +97,7 @@ router.get('/:id/edit', (req, res) => {
       res.render('error404')
   }
   else {
-    res.render('places/edit', { place: places[id] })
+    res.render('places/edit', { place: places[id], id })
   }
 })
   

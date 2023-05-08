@@ -6,7 +6,8 @@ const Def = require('../default')
 function index (data) {
     let placesFormatted = data.places.map((place) => {
       return (
-        <div className='col-sm-6'>
+//added key={place.name} to div to remove warning
+        <div className='col-sm-6' key={place.name}>
           <h2>
               <a href={`/places/${index}`} >
                 {place.name}
