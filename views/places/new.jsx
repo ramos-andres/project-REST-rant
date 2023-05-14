@@ -3,13 +3,22 @@ const React = require('react')
 const Def = require('../default')
 
 //define new function
-function new_form () {
+function new_form (data) {
+    let message = ''
+    if (data.message) {
+      message = (
+        <h4 className="alert-danger">
+          {data.message}
+        </h4>
+      )
+    }
 //return statement and Def component as wrapper
     return (
 //HTML added, main tag and title with h1 tag; form tag with method(HTTP verb) and action(the destination path) attributes
         <Def>
             <main>
                 <h1>Add a New Place</h1>
+                {message}
                 <form method="POST" action="/places">
                     <div className="form-group">
                         <label htmlFor="name">Place Name</label>
@@ -29,7 +38,7 @@ function new_form () {
                     </div>
                     <div className="form-group">
                         <label htmlFor="founded">Founded Year</label>
-                        <input className="form-control" id="founded" name="founded" />
+                        <input type="number" className="form-control" id="founded" name="founded" value={new Date() .getFullYear()} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="cuisines">Cuisines</label>
