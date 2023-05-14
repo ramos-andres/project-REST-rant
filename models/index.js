@@ -1,3 +1,4 @@
+//require dotenv package to access MONGO_URI environment variable
 require('dotenv').config()
 //connection to Mongoose
 const mongoose = require('mongoose')
