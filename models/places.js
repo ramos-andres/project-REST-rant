@@ -1,14 +1,15 @@
-//places array temporary variable content from places index route
-module.exports = [{
-    name: 'H-Thai-ML',
-    city: 'Seattle',
-    state: 'WA',
-    cuisines: 'Thai, Pan-Asian',
-    pic: '/images/thairestaurant.jpg'
-  }, {
-    name: 'Coding Cat Cafe',
-    city: 'Phoenix',
-    state: 'AZ',
-    cuisines: 'Coffee, Bakery',
-    pic: '/images/catcafe.jpg'    
-}]
+//require mongoose
+const mongoose = require('mongoose')
+const { Schema } = mongoose
+
+//create a schema for defining a place
+const placeSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  pic: String,
+  cuisines: { type: String, required: true },
+  city: { type: String, default: 'Anytown' },
+  state: { type: String, default: 'USA' },
+  founded: Number
+})
+//export the schema as a model
+module.exports = mongoose.model('Place', placeSchema)

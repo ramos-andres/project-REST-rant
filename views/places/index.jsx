@@ -4,12 +4,12 @@ const Def = require('../default')
 
 //index stub function
 function index (data) {
-    let placesFormatted = data.places.map((place, index) => {
+    let placesFormatted = data.places.map((place) => {
       return (
 //added key={place.name} to div to remove warning
         <div className='col-sm-6' key={place.name}>
           <h2>
-              <a href={`/places/${index}`} >
+              <a href={`/places/${place.id}`} >
                 {place.name}
               </a>
           </h2>
