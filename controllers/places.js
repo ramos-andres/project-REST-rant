@@ -35,10 +35,12 @@ router.post('/', (req, res) => {
   })
 })
 
+//route to create a new place
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
+//route to show a place
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
   .populate('comments')
@@ -116,8 +118,17 @@ router.post('/:id/comment', (req, res) => {
   })
 })
 
-router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
+//route to delete a comment
+router.delete('/:id/comment/:commentId', (req, res) => {
+  db.Comment.findByIdAndDelete(req.params.commentId)
+      .then(() => {
+          console.log('Success')
+          res.redirect(`/places/${req.params.id}`)
+      })
+      .catch(err => {
+          console.log('err', err)
+          res.render('error404')
+      })
 })
 
 module.exports = router
