@@ -1,5 +1,6 @@
 //require mongoose
 const mongoose = require('mongoose')
+const comment = require('./comment')
 
 //create a schema for defining a place
 const placeSchema = new mongoose.Schema({
@@ -12,7 +13,9 @@ const placeSchema = new mongoose.Schema({
     type: Number,
     min: [1673, 'Surely not that old?!'],
     max: [new Date().getFullYear(), 'Hey, this year is in the future!']
-  }
+  },
+//add a comments array to place schema
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 })
 //add a method to the schema
 placeSchema.methods.showEstablished = function() {
