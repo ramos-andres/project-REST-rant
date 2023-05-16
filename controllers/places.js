@@ -93,9 +93,6 @@ router.post('/:id/comment', (req, res) => {
   })
 })
 
-
-
-
 router.delete('/:id/rant/:rantId', (req, res) => {
     res.send('GET /places/:id/rant/:rantId stub')
 })
