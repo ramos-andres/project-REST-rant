@@ -55,39 +55,55 @@ router.get('/:id', (req, res) => {
 })
 
 //route to update a place
-router.put('/:id', (req, res) => {
-  db.Place.findByIdAndUpdate(req.params.id, req.body)
-  .then(() => {
-      res.redirect(`/places/${req.params.id}`)
-  })
-  .catch(err => {
-      console.log('err', err)
-      res.render('error404')
-  })
-})
+router.put("/:id", (req, res) => {
+    let id = req.params.id;
+    //  Dig into req.body and make sure data is valid
+    if (!req.body.pic) {
+        // Default image if one is not provided
+        req.body.pic = "../public/images/cartoon-rest-rant.png";
+    }
+    if (!req.body.city) {
+        req.body.city = "Anytown";
+    }
+    if (!req.body.state) {
+        req.body.state = "USA";
+    }
+    db.Place.findByIdAndUpdate(id, req.body, { new: true })
+        .then((updatedPlace) => {
+            res.redirect(`/places/${id}`);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.render("error404");
+        });
+});
 
 
 //route to delete a place
-router.delete('/:id', (req, res) => {
-  db.Place.findById(req.params.id)
-  .then(place => {
-      res.render('places/edit', { place })
-  })
-  .catch(err => {
-      res.render('error404')
-  })
-})
+router.delete("/:id", (req, res) => {
+  let id = req.params.id;
+  db.Place.findByIdAndDelete(id)
+      .then(() => {
+          res.redirect("/places");
+      })
+      .catch((err) => {
+          console.log(err);
+          res.render("error404");
+      });
+});
 
 //route to edit a place
-router.get('/:id/edit', (req, res) => {
-  db.Place.findById(req.params.id)
-  .then(place => {
-      res.render('places/edit', { place })
-  })
-  .catch(err => {
-      res.render('error404')
-  })
-})
+router.get("/:id/edit", (req, res) => {
+  let id = req.params.id;
+  db.Place.findById(id)
+      .then((place) => {
+          res.render("places/edit", { place });
+      })
+      .catch((err) => {
+          console.log("err", err);
+          res.render("error404");
+      });
+});
 
 
 //comment routes
