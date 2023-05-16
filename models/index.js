@@ -11,3 +11,4 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 //export all of the models
 module.exports.Place = require('./places')
+module.exports.Comment = require('./comment')

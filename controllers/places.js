@@ -26,8 +26,7 @@ router.post('/', (req, res) => {
             message += `${field} was ${err.errors[field].value}.`
             message += `${err.errors[field].message}\n`
           }
-          //Todo: Finall all validation errors
-
+          //Todo: Find all validation errors
           res.render('places/new', { message })
       }
       else {
