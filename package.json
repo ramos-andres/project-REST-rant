@@ -19,5 +19,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^6.10.1",
     "react": "^16.14.0"
+  },
+  "devDependencies": {
+    "prettier": "2.8.8"
   }
 }
